@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maillink</title>
+</head>
+<body>
+    <p id="maillink"></p>
+
+    <script>
+    //Lager to variabler, en for name og en for mail
+    const firstname = "Didrik"
+    const maillink = "didrikbw@hiof.no"
+
+    //Lager ny variabel for emaillink
+    const emailLink = `<a href="mailto:${maillink}">Send mail til ${firstname}</a>`
+    document.getElementById("maillink").innerHTML = emailLink;
+    </script>
+
+</body>
+</html>

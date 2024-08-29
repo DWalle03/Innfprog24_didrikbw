@@ -1,0 +1,28 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattestykke</title>
+</head>
+<body>
+    <p id="average"></p>
+    <script>
+        //Vi har hentet informasjon og regnet ut fødselsår på en familie bestående av fire personer og lager følgende variabler
+        const father_birthyear = 1987
+        const mother_birthyear = 1992
+        const daughter_birthyear = 2017
+        const baby_birthyear = 2022
+
+        const father_age = 2024 - father_birthyear
+        const mother_age = 2024 - mother_birthyear
+        const daughter_age = 2024 - daughter_birthyear
+        const baby_age = 2024 - baby_birthyear
+
+        //Så lager vi en utskrift som viser gjennonsnittsalder
+        const utskrift = "Gjennomsnittalder= " + (father_age + mother_age + daughter_age + baby_age)/4
+        document.getElementById("average").innerHTML = utskrift;
+    </script>
+
+</body>
+</html>

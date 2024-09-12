@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppgave 3</title>
+</head>
+<body>
+    <p id="utskrift"></p>
+    <p>Antall dyr: <span id="antallDyr"></span></span></p>
+
+    <script>
+        //Lag variabel med array:
+        const dyr = ["Rødpanda", "Steppesebra", "Struts", "Løve", "Surikat", "Elandantilope", "Esel", "Gris", "Gepard", "Nubisk geit"]
+        //Legg til to dyr i arrayen:
+        dyr.push("Frosk", "Skilpadde")
+        //Antall dyr i arrayen
+        const antallDyr = dyr.length
+        //Sorter array alfabetisk
+        dyr.sort()
+
+        document.getElementById("utskrift").innerHTML = dyr
+        document.getElementById("antallDyr").innerHTML = antallDyr
+    </script>
+
+</body>
+</html>

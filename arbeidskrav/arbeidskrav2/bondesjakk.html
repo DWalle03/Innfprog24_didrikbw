@@ -244,10 +244,8 @@
             }
         }
 
-        const myTimeout = setTimeout(sjekkVinner, 3000);
-
         function sjekkVinner() {
-            var rundenVunnet = false;
+            var rundenVunnet = false; 
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
             // Dette gjør vi ved å gå gjennom alle vinnerkombinasjonene, og
             //sjekke om brikkene på spillbrettet er like ved indexene til vinnerkombinasjonene:
@@ -275,8 +273,24 @@
             }
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
-            if(rundenVunnet === true) 
-            {
+            if(rundenVunnet === true) {
+
+                //Sett spillstatus til false, slik at ingen spillere får plassere
+                //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
+                spillStatus = false;
+
+                //Legger inn setTimeout for å sette en venteperiode på ett sekund før koden kjøres
+                setTimeout(function() {
+
+                    //Gjenbruk av kode slik at spillet viser riktig vinner
+                    if (player === 1) {
+                        player = 2;
+                        playermark = "O";
+                    } else {
+                        player = 1;
+                        playermark = "X";
+                    }
+
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
                
@@ -285,9 +299,21 @@
 
                 //Gjør restart spill-knappen synlig
                 document.getElementById("newgame").style.display = "block";
-                //Sett spillstatus til false, slik at ingen spillere får plassere
-                //flere brikker på brettet - dette løses med sjekken i funksjonen spill()
-                spillStatus = false;
+                
+                //Bakgrunn til "playerturn" blir endret til gull
+                document.getElementById("playerturn").style.backgroundColor = "#FFD700";
+
+                //Spillermerkene blir endret til gull når en spiller vinner
+                document.getElementById("celle0").style.color = "#FFD700";
+                document.getElementById("celle1").style.color = "#FFD700";
+                document.getElementById("celle2").style.color = "#FFD700";
+                document.getElementById("celle3").style.color = "#FFD700";
+                document.getElementById("celle4").style.color = "#FFD700";
+                document.getElementById("celle5").style.color = "#FFD700";
+                document.getElementById("celle6").style.color = "#FFD700";
+                document.getElementById("celle7").style.color = "#FFD700";
+                document.getElementById("celle8").style.color = "#FFD700";
+            }, 1000);
             }
         }
 
@@ -315,7 +341,6 @@
             
             //Resetter bakgrunnsfargen til normal
             document.getElementById("playerturn").style.backgroundColor = "#ccc";
-
         }
     </script>
 </body>

@@ -72,7 +72,7 @@
 </head>
 
 <body>
-    <section id="playerturn">Spiller <span id="player"></span> (<span id="playermark"></span>) sin tur:</section>
+    <section id="playerturn">Spiller <span id="player"></span> (<span id="playermark"></span>) sin tur: </section>
     <section id="gamearea">
         <div id="celle0" class="celle"></div>
         <div id="celle1" class="celle"></div>
@@ -84,7 +84,7 @@
         <div id="celle7" class="celle"></div>
         <div id="celle8" class="celle"></div>
     </section>
-    <button id="newgame" onclick="restartGame()">Start spill på nytt</button>
+    <button id="newgame" onclick="restartGame()">Start spill på nytt</button>    
 
     <script>
         /* For å forstå hvorfor vi har celle-IDene 0 - 8 i HTML-koden over:
@@ -244,6 +244,8 @@
             }
         }
 
+        const myTimeout = setTimeout(sjekkVinner, 3000);
+
         function sjekkVinner() {
             var rundenVunnet = false;
             //Vi må sjekke etter vinner for hver brikke som plasseres på brettet.
@@ -273,9 +275,11 @@
             }
 
             //Hvis runden er vunnet, skal vi gjøre noen handlinger:
-            if(rundenVunnet === true) {
+            if(rundenVunnet === true) 
+            {
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
+               
                 //Legger til gullfarge på bakgrunn hvis spiller x vinner
                 document.getElementById("playerturn").style.backgroundColor = "#FFD700";
 
@@ -308,6 +312,7 @@
             playermark = "X";
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
+            
             //Resetter bakgrunnsfargen til normal
             document.getElementById("playerturn").style.backgroundColor = "#ccc";
 

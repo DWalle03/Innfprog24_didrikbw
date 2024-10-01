@@ -282,14 +282,14 @@
                 //Legger inn setTimeout for å sette en venteperiode på ett sekund før koden kjøres
                 setTimeout(function() {
 
-                    //Gjenbruk av kode slik at spillet viser riktig vinner
-                    if (player === 1) {
-                        player = 2;
-                        playermark = "O";
-                    } else {
-                        player = 1;
-                        playermark = "X";
-                    }
+            //Gjenbruk av kode slik at spillet viser riktig vinner
+            if (player === 1) {
+                   player = 2;
+                   playermark = "O";
+             } else {
+                  player = 1;
+                    playermark = "X";
+                }
 
                 //Skriv ut hvilken spiller som har vunnet
                 document.getElementById("playerturn").innerHTML = "Spiller " + player + " har vunnet!";
@@ -339,7 +339,7 @@
             // 4)
             document.getElementById("playerturn").innerHTML = 'Spiller <span id="player">1</span> (<span id="playermark">X</span>) sin tur:';
             
-            //Resetter bakgrunnsfargen til normal
+            //Setter bakgrunnsfargen tilbake til normal
             document.getElementById("playerturn").style.backgroundColor = "#ccc";
         }
     </script>

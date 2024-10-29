@@ -24,45 +24,44 @@
         <h1>Karakterkalkulator:</h1>
     </header>
     <p>
-        <label for="poengsum1">
-            Eksamensoppgave 1: 
-            <input id="poengsum1" type="number" placeholder="Poengsum.."/>
-        </label>
+        <label for="poengsum1">Eksamensoppgave 1:</label> 
+        <input id="poengsum1" type="number" placeholder="Poengsum.."/>
     </p>
     <p>
-        <label for="poengsum2">
-            Eksamensoppgave 2: 
-            <input id="poengsum2" type="number" placeholder="Poengsum.."/>
-        </label>
+        <label for="poengsum2">Eksamensoppgave 2:</label> 
+        <input id="poengsum2" type="number" placeholder="Poengsum.."/>
     </p>
     <p><button onclick="karakterkalkulator()">Beregn karakter</button></p>
-    <p id="gradesentence"><span id="grade"></span></p>
+    <p id="gradesentence"></p>
 
     <script>
-        function karakterkalkulator() {
-            //Hente poengsum fra input
-            const poengsum1 = document.getElementById("poengsum1").value
-            const poengsum2 = document.getElementById("poengsum2").value
-            //Regne ut karakter
-            const gradesum = (0.3 * (poengsum1 / 10 * 100)) + (0.7 * (poengsum2 / 12 * 100))
-            console.log(gradesum)
-            //Karakterer i forhold til poengsum
-            const grades = [
-                {grade: "F", treshold: 0},
-                {grade: "E", treshold: 25},
-                {grade: "D", treshold: 44},
-                {grade: "C", treshold: 68},
-                {grade: "B", treshold: 88},
-                {grade: "A", treshold: 100}
-            ]
 
-            //Lager en if test for å koble sammen poengsum med karakter
-                if(gradesum < 25){
-                    grade === "F"
-                }
+    //Karakterer i forhold til poengsum
+        const grades = [
+            {grade: "F", treshold: 0},
+            {grade: "E", treshold: 25},
+            {grade: "D", treshold: 44},
+            {grade: "C", treshold: 68},
+            {grade: "B", treshold: 88},
+            {grade: "A", treshold: 100}
+        ];
+
+        function karakterkalkulator() {
+            
+
+            //Hente poengsum fra input
+            const poengsum1 = document.getElementById("poengsum1").value;
+            const poengsum2 = document.getElementById("poengsum2").value;
+
+            //Regne ut poengsum 
+            const gradesum = (0.3 * (poengsum1 / 10 * 100)) + (0.7 * (poengsum2 / 12 * 100))
+            console.log(gradesum) 
+
+            //Bestem karakter basert på prosentandel 
+            let karakter = grades.find(grade => gradesum >= grade.treshold).grade;
 
             //Skriver ut for å vise karakter
-            document.getElementById("gradesentence").innerHTML = `Din karakter: ${gradesum}%`
+            document.getElementById("gradesentence").innerHTML = `Din karakter: ` + karakter;
 
 
         }

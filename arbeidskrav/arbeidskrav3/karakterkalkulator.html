@@ -21,13 +21,13 @@
     </header>
     
         <label for="poengsum1">Eksamensoppgave 1:</label> 
-        <input id="poengsum1" type="number" placeholder="Poengsum.."/>
+        <input id="poengsum1" type="number" placeholder="Poengsum.." onkeyup="success()"/>
     
     
         <label for="poengsum2">Eksamensoppgave 2:</label> 
-        <input id="poengsum2" type="number" placeholder="Poengsum.."/>
+        <input id="poengsum2" type="number" placeholder="Poengsum.." onkeyup="success()"/>
     
-    <button onclick="karakterkalkulator()">Beregn karakter</button>
+    <button id="button" onclick="karakterkalkulator()" disabled>Beregn karakter</button>
     <p id="gradesentence"></p>
 
     <script>
@@ -60,6 +60,15 @@
                 }
             //Skriver ut for å vise karakter
             document.getElementById("gradesentence").innerHTML = `Din karakter: ` + karakter;
+        }
+
+        //Lager funksjon for å deaktivere "button" 
+        function success() {
+            if(document.getElementById("poengsum1").value === "" || document.getElementById("poengsum2").value === "") {
+                document.getElementById("button").disabled = true;
+            } else {
+                document.getElementById("button").disabled = false; 
+            }
         }
 
     </script>

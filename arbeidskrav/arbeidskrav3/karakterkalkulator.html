@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karakterkalkulator</title>
     <style>
-
         body{
             background-color: #ccc;
             display: grid;
@@ -19,10 +18,8 @@
     <header>
         <h1>Karakterkalkulator:</h1>
     </header>
-    
         <label for="poengsum1">Eksamensoppgave 1:</label> 
         <input id="poengsum1" type="number" placeholder="Poengsum.." onkeyup="success()"/>
-    
     
         <label for="poengsum2">Eksamensoppgave 2:</label> 
         <input id="poengsum2" type="number" placeholder="Poengsum.." onkeyup="success()"/>
@@ -31,7 +28,6 @@
     <p id="gradesentence"></p>
 
     <script>
-
     //Karakterer i forhold til poengsum
         const grades = [
             {grade: "F", treshold: 0},
@@ -43,7 +39,6 @@
         ];
 
         function karakterkalkulator() {
-            
             //Hente poengsum fra input
             const poengsum1 = document.getElementById("poengsum1").value;
             const poengsum2 = document.getElementById("poengsum2").value;
@@ -52,13 +47,12 @@
             const gradesum = (0.3 * (poengsum1 / 10 * 100)) + (0.7 * (poengsum2 / 12 * 100))
             console.log(gradesum) 
 
+            //Bestem karakter basert på prosentandel og skriver ut 
             if (gradesum >= 100){
                 karakter = "A";
             } else {
-                //Bestem karakter basert på prosentandel
                 karakter = grades.find(({treshold}) => (gradesum >= treshold && gradesum <= grades[(grades.findIndex(element => element.treshold === treshold))+1].treshold )).grade;
                 }
-            //Skriver ut for å vise karakter
             document.getElementById("gradesentence").innerHTML = `Din karakter: ` + karakter;
         }
 
@@ -70,7 +64,11 @@
                 document.getElementById("button").disabled = false; 
             }
         }
-
     </script>
 </body>
+<!-- KILDEHENVISNING:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+https://www.w3schools.com/tags/att_button_disabled.asp
+https://stackoverflow.com/questions/2874688/how-to-disable-an-input-type-text
+-->
 </html>
